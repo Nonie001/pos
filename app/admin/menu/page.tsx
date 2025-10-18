@@ -25,11 +25,11 @@ export default function AdminMenuPage() {
   };
 
   return (
-    <div className="p-8">
+    <div className="p-4 sm:p-8">
       {/* Header */}
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">จัดการเมนู</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">จัดการเมนู</h1>
           <p className="text-gray-600 mt-1">เพิ่ม แก้ไข หรือลบเมนูอาหาร</p>
         </div>
         <button
@@ -37,7 +37,7 @@ export default function AdminMenuPage() {
             setEditingItem(null);
             setShowAddModal(true);
           }}
-          className="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-medium shadow-lg transition-all"
+          className="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-medium shadow-lg transition-all min-h-[48px] touch-manipulation w-full sm:w-auto justify-center"
         >
           <Plus className="w-5 h-5" />
           เพิ่มเมนูใหม่
@@ -45,10 +45,10 @@ export default function AdminMenuPage() {
       </div>
 
       {/* Category Filter */}
-      <div className="flex gap-2 mb-6 overflow-x-auto pb-2">
+      <div className="flex gap-2 mb-6 overflow-x-auto pb-2 scrollbar-hide">
         <button
           onClick={() => setSelectedCategory('all')}
-          className={`px-4 py-2 rounded-lg font-medium whitespace-nowrap transition-all ${
+          className={`px-4 py-3 rounded-lg font-medium whitespace-nowrap transition-all min-h-[44px] touch-manipulation ${
             selectedCategory === 'all'
               ? 'bg-orange-500 text-white'
               : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -60,7 +60,7 @@ export default function AdminMenuPage() {
           <button
             key={category.id}
             onClick={() => setSelectedCategory(category.id)}
-            className={`px-4 py-2 rounded-lg font-medium whitespace-nowrap transition-all ${
+            className={`px-4 py-3 rounded-lg font-medium whitespace-nowrap transition-all min-h-[44px] touch-manipulation ${
               selectedCategory === category.id
                 ? 'bg-orange-500 text-white'
                 : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -113,7 +113,7 @@ export default function AdminMenuPage() {
                     setEditingItem(item);
                     setShowAddModal(true);
                   }}
-                  className="flex-1 flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white py-2 rounded-lg font-medium transition-all shadow-md"
+                  className="flex-1 flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-lg font-medium transition-all shadow-md min-h-[48px] touch-manipulation"
                 >
                   <Edit className="w-4 h-4" />
                   แก้ไข
@@ -124,7 +124,7 @@ export default function AdminMenuPage() {
                       removeMenuItem(item.id);
                     }
                   }}
-                  className="flex-1 flex items-center justify-center gap-2 bg-gray-500 hover:bg-gray-600 text-white py-2 rounded-lg font-medium transition-all shadow-md"
+                  className="flex-1 flex items-center justify-center gap-2 bg-gray-500 hover:bg-gray-600 text-white py-3 rounded-lg font-medium transition-all shadow-md min-h-[48px] touch-manipulation"
                 >
                   <Trash2 className="w-4 h-4" />
                   ลบ

@@ -76,11 +76,11 @@ export default function AdminOrdersPage() {
   };
 
   return (
-    <div className="p-8">
+    <div className="p-4 sm:p-8">
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">จัดการออเดอร์</h1>
-        <p className="text-gray-600 mt-1">ระบบจัดการออเดอร์แบบ Real-time</p>
+        <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">จัดการออเดอร์</h1>
+        <p className="text-gray-600 mt-1">ติดตามและจัดการออเดอร์ทั้งหมด</p>
       </div>
 
       {/* Stats Cards */}
@@ -238,7 +238,7 @@ export default function AdminOrdersPage() {
                         {order.status === 'pending' && (
                           <button
                             onClick={() => updateOrderStatus(order.id, 'in_progress')}
-                            className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg font-medium transition-all shadow-md"
+                            className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-medium transition-all shadow-md min-h-[48px] touch-manipulation"
                           >
                             เริ่มทำอาหาร
                           </button>
@@ -246,7 +246,7 @@ export default function AdminOrdersPage() {
                         {order.status === 'in_progress' && (
                           <button
                             onClick={() => updateOrderStatus(order.id, 'served')}
-                            className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg font-medium transition-all shadow-md"
+                            className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-medium transition-all shadow-md min-h-[48px] touch-manipulation"
                           >
                             เสิร์ฟแล้ว
                           </button>

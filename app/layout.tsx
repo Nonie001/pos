@@ -12,6 +12,12 @@ const prompt = Prompt({
 export const metadata: Metadata = {
   title: "ระบบสั่งอาหาร - POS",
   description: "ระบบสั่งอาหารสำหรับร้านอาหาร",
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+    userScalable: false,
+  },
 };
 
 export default function RootLayout({

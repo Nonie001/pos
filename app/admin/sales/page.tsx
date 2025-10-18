@@ -68,16 +68,16 @@ export default function AdminSalesPage() {
   }, [filteredOrders, menuItems]);
 
   return (
-    <div className="p-8">
+    <div className="p-4 sm:p-8">
       {/* Header */}
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">รายงานยอดขาย</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">รายงานยอดขาย</h1>
           <p className="text-gray-600 mt-1">สรุปรายได้และยอดขาย</p>
         </div>
 
         {/* Period Selector */}
-        <div className="flex gap-2 bg-gray-100 p-1 rounded-lg">
+        <div className="flex gap-2 bg-gray-100 p-1 rounded-lg overflow-x-auto">
           <button
             onClick={() => setSelectedPeriod('today')}
             className={`px-4 py-2 rounded-lg font-medium transition-all ${

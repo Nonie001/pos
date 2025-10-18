@@ -83,16 +83,16 @@ export default function AdminTablesPage() {
   };
 
   return (
-    <div className="p-8">
+    <div className="p-4 sm:p-8">
       {/* Header */}
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">จัดการโต๊ะ</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">จัดการโต๊ะ</h1>
           <p className="text-gray-600 mt-1">จัดการโต๊ะและ QR Code</p>
         </div>
         <button
           onClick={() => setShowAddModal(true)}
-          className="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-medium shadow-lg transition-all"
+          className="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-medium shadow-lg transition-all min-h-[48px] touch-manipulation w-full sm:w-auto justify-center"
         >
           <Plus className="w-5 h-5" />
           เพิ่มโต๊ะใหม่
@@ -138,7 +138,7 @@ export default function AdminTablesPage() {
               <div className="space-y-2">
                 <button
                   onClick={() => handleShowQR(table)}
-                  className="w-full flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white py-2 rounded-lg font-medium transition-all shadow-md"
+                  className="w-full flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-lg font-medium transition-all shadow-md min-h-[48px] touch-manipulation"
                 >
                   <QrCode className="w-5 h-5" />
                   ดู QR Code
@@ -150,7 +150,7 @@ export default function AdminTablesPage() {
                       removeTable(table.id);
                     }
                   }}
-                  className="w-full flex items-center justify-center gap-2 bg-gray-500 hover:bg-gray-600 text-white py-2 rounded-lg font-medium transition-all shadow-md"
+                  className="w-full flex items-center justify-center gap-2 bg-gray-500 hover:bg-gray-600 text-white py-3 rounded-lg font-medium transition-all shadow-md min-h-[48px] touch-manipulation"
                 >
                   <Trash2 className="w-5 h-5" />
                   ลบโต๊ะ

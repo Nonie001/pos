@@ -315,20 +315,20 @@ function CartModal({ tableId, onClose }: CartModalProps) {
       />
       
       {/* Modal */}
-      <div className="absolute bottom-0 left-0 right-0 bg-white rounded-t-3xl shadow-2xl max-h-[85vh] flex flex-col animate-slide-up">
+      <div className="absolute bottom-0 left-0 right-0 bg-white rounded-t-3xl shadow-2xl max-h-[90vh] flex flex-col animate-slide-up">
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b">
-          <h2 className="text-xl font-bold">ตะกร้าสินค้า</h2>
+        <div className="flex items-center justify-between px-4 sm:px-6 py-4 border-b">
+          <h2 className="text-lg sm:text-xl font-bold">ตะกร้าสินค้า</h2>
           <button 
             onClick={onClose}
-            className="text-gray-500 hover:text-gray-700 p-2"
+            className="text-gray-500 hover:text-gray-700 p-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
           >
             <X className="w-6 h-6" />
           </button>
         </div>
 
         {/* Cart Items */}
-        <div className="flex-1 overflow-y-auto px-6 py-4">
+        <div className="flex-1 overflow-y-auto px-4 sm:px-6 py-4">
           {cart.length === 0 ? (
             <div className="text-center py-12 text-gray-400">
               <p>ตะกร้าว่างเปล่า</p>
@@ -336,16 +336,16 @@ function CartModal({ tableId, onClose }: CartModalProps) {
           ) : (
             <div className="space-y-3">
               {cart.map((item) => (
-                <div key={item.menuId} className="flex items-center gap-3 bg-gray-50 rounded-xl p-3">
-                  <div className="flex-1">
-                    <h3 className="font-medium text-gray-900">{item.menuName}</h3>
+                <div key={item.menuId} className="flex items-center gap-2 sm:gap-3 bg-gray-50 rounded-xl p-3">
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-medium text-gray-900 truncate">{item.menuName}</h3>
                     <p className="text-sm text-orange-600 font-semibold">฿{item.price}</p>
                   </div>
                   
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => updateCartQuantity(item.menuId, item.quantity - 1)}
-                      className="w-8 h-8 rounded-lg bg-gray-200 hover:bg-gray-300 flex items-center justify-center"
+                      className="w-10 h-10 rounded-lg bg-gray-200 hover:bg-gray-300 flex items-center justify-center touch-manipulation"
                     >
                       <Minus className="w-4 h-4" />
                     </button>
@@ -354,7 +354,7 @@ function CartModal({ tableId, onClose }: CartModalProps) {
                     
                     <button
                       onClick={() => updateCartQuantity(item.menuId, item.quantity + 1)}
-                      className="w-8 h-8 rounded-lg bg-orange-500 hover:bg-orange-600 text-white flex items-center justify-center"
+                      className="w-10 h-10 rounded-lg bg-orange-500 hover:bg-orange-600 text-white flex items-center justify-center touch-manipulation"
                     >
                       <Plus className="w-4 h-4" />
                     </button>
@@ -362,7 +362,7 @@ function CartModal({ tableId, onClose }: CartModalProps) {
 
                   <button
                     onClick={() => removeFromCart(item.menuId)}
-                    className="text-red-500 hover:text-red-700 p-2"
+                    className="text-red-500 hover:text-red-700 p-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
                   >
                     <Trash2 className="w-5 h-5" />
                   </button>
@@ -374,7 +374,7 @@ function CartModal({ tableId, onClose }: CartModalProps) {
 
         {/* Footer */}
         {cart.length > 0 && (
-          <div className="px-6 py-4 border-t bg-gray-50">
+          <div className="px-4 sm:px-6 py-4 border-t bg-gray-50">
             <div className="flex items-center justify-between mb-3">
               <span className="text-gray-700 font-medium">ยอดรวม</span>
               <span className="text-2xl font-bold text-orange-600">฿{getCartTotal()}</span>
@@ -383,7 +383,7 @@ function CartModal({ tableId, onClose }: CartModalProps) {
             <div className="flex gap-2">
               <button
                 onClick={clearCart}
-                className="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 py-3 rounded-xl font-medium"
+                className="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 py-4 rounded-xl font-medium min-h-[48px] touch-manipulation"
               >
                 ล้างตะกร้า
               </button>
@@ -391,7 +391,7 @@ function CartModal({ tableId, onClose }: CartModalProps) {
               <button
                 onClick={handleSubmit}
                 disabled={isSubmitting || isCheckoutPending}
-                className="flex-[2] bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white py-3 rounded-xl font-bold shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex-[2] bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white py-4 rounded-xl font-bold shadow-lg disabled:opacity-50 disabled:cursor-not-allowed min-h-[48px] touch-manipulation"
               >
                 {isSubmitting ? 'กำลังส่ง...' : isCheckoutPending ? 'โต๊ะรอชำระ' : 'ยืนยันออเดอร์'}
               </button>
