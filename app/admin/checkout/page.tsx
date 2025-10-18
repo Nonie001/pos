@@ -34,7 +34,7 @@ export default function AdminCheckoutPage() {
     })
     .filter(Boolean);
 
-  const handlePrintBill = (tableId: string) => {
+  const handlePrintBill = () => {
     // TODO: Implement print functionality
     alert('พิมพ์บิลสำหรับโต๊ะ');
   };
@@ -234,7 +234,7 @@ export default function AdminCheckoutPage() {
                       {/* Action Buttons */}
                       <div className="flex gap-3">
                         <button
-                          onClick={() => handlePrintBill(table.id)}
+                          onClick={handlePrintBill}
                           className="flex-1 flex items-center justify-center gap-2 bg-gray-500 hover:bg-gray-600 text-white py-3 rounded-lg font-medium transition-all shadow-md"
                         >
                           <Printer className="w-5 h-5" />
